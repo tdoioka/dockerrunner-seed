@@ -77,7 +77,7 @@ _help_vals:
 ################################################################
 dbg = @echo $@: $^
 ifimg = $(if $(shell docker image ls -q $(1)),$(2),$(3))
-ifcnt = $(if $(shell docker ps -qf name=$(1)),$(2),$(3))
+ifcnt = $(if $(shell docker ps -qf name='^$(1)$$'),$(2),$(3))
 CWD ?= $(PWD)
 ################################################################
 build: $(IMG)_build
